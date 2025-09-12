@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Travel Recommendation Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+
+    nav {
+      background: #333;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    nav .links a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    nav .links a:hover {
+      text-decoration: underline;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-bar input {
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .search-bar button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .search-bar button:hover {
+      background: #007bff;
+      color: white;
+    }
+
+    header {
+      background: url("https://github.com/ATHARVA2437/travelRecommendation/blob/master/background.jpg?raw=true") no-repeat center center/cover;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+      font-size: 28px;
+    }
+
+    .intro {
+      text-align: center;
+      padding: 20px;
+    }
+
+    #results {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .recommendation {
+      background: white;
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .recommendation img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .recommendation h3 {
+      margin: 10px 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .recommendation p {
+      padding: 0 10px 10px 10px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #333;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Task 2: Navbar -->
+  <nav>
+    <!-- TravelBoom brand -->
+    <div class="brand">
+      <h2 style="margin:0; color:white;">TravelBoom</h2>
+    </div>
+
+    <div class="links">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
+      </div>
+      
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search (e.g. beach, temple, Japan)">
+      <button onclick="searchRecommendations()">Search</button>
+      <button onclick="clearResults()">Clear</button>
+    </div>
+  </nav>
+
+<!-- Task 3: Home page -->
+<section id="home">
+    <header>
+      Welcome to Your Travel Recommendation Website
+    </header>
+  
+    <div class="intro">
+      <p>
+        Discover amazing destinations, temples, and beaches around the world.
+        Use the search bar to find your next travel recommendation.
+      </p>
+    </div>
+  </section>
+
+  <!-- Task 4: About Us -->
+<section id="about" style="padding:40px; background:#f9f9f9;">
+    <h2 style="text-align:center;">About Us</h2>
+    <p style="max-width:700px; margin:auto; text-align:center;">
+      TravelBoom is a travel recommendation website built to inspire your journeys.
+      We bring together a passionate team to help you discover the best destinations around the world.
+    </p>
+  
+    <h3 style="text-align:center; margin-top:30px;">Our Team</h3>
+    <div style="display:flex; justify-content:center; gap:40px; margin-top:20px; flex-wrap:wrap;">
+      <div style="text-align:center;">
+        <h4>Atharva Rathi</h4>
+        <p>Founder & Developer</p>
+      </div>
+      <div style="text-align:center;">
+        <h4>Jane Doe</h4>
+        <p>Designer</p>
+      </div>
+      <div style="text-align:center;">
+        <h4>John Smith</h4>
+        <p>Content Manager</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Task 5: Contact Us -->
+<section id="contact" style="padding:40px; background:#eee;">
+    <h2 style="text-align:center;">Contact Us</h2>
+    <p style="text-align:center;">We’d love to hear from you! Please fill out the form below:</p>
+  
+    <form style="max-width:500px; margin:20px auto; background:white; padding:20px; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1);">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required style="width:100%; padding:10px; margin:8px 0; border:1px solid #ccc; border-radius:5px;"><br>
+  
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required style="width:100%; padding:10px; margin:8px 0; border:1px solid #ccc; border-radius:5px;"><br>
+  
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required style="width:100%; padding:10px; margin:8px 0; border:1px solid #ccc; border-radius:5px;"></textarea><br>
+  
+      <button type="submit" style="width:100%; padding:12px; background:#007bff; color:white; border:none; border-radius:5px; cursor:pointer;">Submit</button>
+    </form>
+  </section>
+  
+  
+  
+
+  <!-- Task 7 & 8: Results will be shown here -->
+  <div id="results"></div>
+
+  <footer>
+    <p>Travel Recommendation Website &copy; 2025</p>
+  </footer>
+
+  <script src="travel_recommendation.js"></script>
+</body>
+</html>
